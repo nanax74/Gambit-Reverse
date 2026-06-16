@@ -24,11 +24,11 @@ namespace Game
         CONNECT_CONSTRUCTOR(PlayerNamePage)
 
         BIND_METHOD(0x0E48D3DC, void, setPlayerName, PlayerNamePage, Cmn::PlayerInfo * playerInfo)
-        CONNECT_METHOD(setPlayerName, PlayerNamePage, playerInfo)
+        CONNECT_METHOD(setPlayerName, playerInfo)
 
         inline static void* operator new(size_t size)
         {
-            return Function__operator_new(size);
+            return operator_new(size);
         }
     };
 }

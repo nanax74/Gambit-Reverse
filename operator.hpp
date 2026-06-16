@@ -1,4 +1,6 @@
 #pragma once
+#include "Macro.hpp"
 #include <cstddef>
 
-inline static void *(*Function__operator_new)(size_t) = reinterpret_cast<void *(*)(size_t)>(0x0E8CD9F0);
+BIND_FUNCTION(0x0E8CD9F0, void*, operator_new, size_t size);
+BIND_FUNCTION(0x0E8CDAA8, void*, operator_delete, void *ptr);

@@ -10,7 +10,9 @@ namespace Cmn
     public:
         struct VTable : public UI::Page::VTable
         {
-            uint8_t u0[0x80];
+            uint8_t u0[0x14];
+            void (*postInitialize)(Cmn::Page* t);
+            uint8_t u1[0x68];
         };
 
         uint8_t u0[0x14];

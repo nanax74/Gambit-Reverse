@@ -8,7 +8,8 @@ namespace Cmn
     class WeaponData
     {
     public:
-        uint8_t u0[0xF8];
+        uint8_t u0[0xF4];
+        int field_0xf4;
         WeaponSubType subType;
         uint8_t u1[0x8];
     };

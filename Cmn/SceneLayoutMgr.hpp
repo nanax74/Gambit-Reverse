@@ -7,6 +7,6 @@ namespace Cmn
     {
     public:
         BIND_METHOD(0x0E0D2080, void, registHandlers, SceneLayoutMgr)
-        CONNECT_METHOD(registHandlers, SceneLayoutMgr)
+        CONNECT_METHOD(registHandlers)
     };
 }

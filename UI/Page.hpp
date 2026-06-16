@@ -2,8 +2,9 @@
 #include "Macro.hpp"
 #include <cstdint>
 
-#include "UI/Impl/Name.hpp"
 #include "Cmn/SceneLayoutMgr.hpp"
+#include "UI/Impl/Name.hpp"
+#include "sead/IDisposer.hpp"
 
 namespace UI
 {
@@ -17,7 +18,7 @@ namespace UI
             CONNECT_CONSTRUCTOR(InitializeArg, sceneLayoutMgr)
 
             BIND_METHOD(0x0E783D90, void, add, InitializeArg, int jobType, int u1)
-            CONNECT_METHOD(add, InitializeArg, jobType, u1)
+            CONNECT_METHOD(add, jobType, u1)
 
             uint8_t u0[0xA8];
         };
@@ -30,7 +31,9 @@ namespace UI
             uint8_t u1[0xA8];
         };
 
-        uint8_t u0[0x1C0];
+        uint8_t u0[0x8];
+        sead::IDisposer iDisposer;
+        uint8_t u1[0x1A8];
 
         void onInitialize(InitializeArg* arg) { reinterpret_cast<UI::Page::VTable*>(vtable)->onInitialize(this, arg); }
     };

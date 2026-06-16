@@ -1,5 +1,9 @@
 #pragma once
 
+#define BIND_FUNCTION(addr, ret, name, ...) \
+    inline static ret (*name)(__VA_ARGS__) = \
+        reinterpret_cast<ret(*)(__VA_ARGS__)>(addr)
+
 #define BIND_CONSTRUCTOR(addr, ClassName, ...) \
     inline static void (*Constructor__##ClassName)(ClassName *__VA_OPT__(, __VA_ARGS__)) = \
         reinterpret_cast<void(*)(ClassName *__VA_OPT__(, __VA_ARGS__))>(addr); \
@@ -10,13 +14,12 @@
         Constructor__##ClassName(this __VA_OPT__(, __VA_ARGS__)); \
     }
 
-
 #define BIND_METHOD(addr, ret, name, ClassName, ...) \
     inline static ret (*Function__##name)(ClassName *__VA_OPT__(, __VA_ARGS__)) = \
         reinterpret_cast<ret(*)(ClassName *__VA_OPT__(, __VA_ARGS__))>(addr); \
     ret name(__VA_ARGS__)
 
-#define CONNECT_METHOD(name, ClassName, ...) \
+#define CONNECT_METHOD(name, ...) \
     { \
         return Function__##name(this __VA_OPT__(, __VA_ARGS__)); \
     }

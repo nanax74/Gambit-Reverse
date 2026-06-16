@@ -12,7 +12,7 @@ namespace Game
     {
     public:
         BIND_METHOD(0x0E67B840, Cmn::Def::DMG, processDamageFromBullet_, PlayerCollision, Bullet* bullet, sead::Vector3<float>* knockback, Cmn::Def::DMG damage)
-        CONNECT_METHOD(processDamageFromBullet_, PlayerCollision, bullet, knockback, damage)
+        CONNECT_METHOD(processDamageFromBullet_, bullet, knockback, damage)
 
         Game::Player* player;
     };

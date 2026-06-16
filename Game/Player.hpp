@@ -9,6 +9,9 @@
 
 namespace Game
 {
+    class PlayerParam;
+    class PlayerInkAction;
+
     class Player : public Cmn::GambitActor
     {
     public:
@@ -24,10 +27,13 @@ namespace Game
         };
 
         BIND_METHOD(0x0E641C1C, void, onFirstCalc, Player)
-        CONNECT_METHOD(onFirstCalc, Player)
+        CONNECT_METHOD(onFirstCalc)
 
         BIND_METHOD(0x0E645F2C, Cmn::Def::DMG, informDamage_Impl, Player, int attackerPlayerIndex, DamageReason *reason, bool u0, bool u1, Cmn::Def::DMG damage)
-        CONNECT_METHOD(informDamage_Impl, Player, attackerPlayerIndex, reason, u0, u1, damage)
+        CONNECT_METHOD(informDamage_Impl, attackerPlayerIndex, reason, u0, u1, damage)
+
+        BIND_METHOD(0x0E658BD0, void, startMotion_BombThrow, Player, bool unk1, bool unk2)
+        CONNECT_METHOD(startMotion_BombThrow, unk1, unk2)
 
         PlayerControlType controlType;
         int unknown0[0x12];
@@ -43,21 +49,23 @@ namespace Game
         int stateMachine[0xE];
         int unknown5[0x2B];
         float pos[0x3];
-        int unknown6[0x143];
-        void* playerInkAction;
+        int unknown6[0x141];
+        PlayerParam* playerParam;
         int unknown7;
+        PlayerInkAction* playerInkAction;
+        int unknown8;
         void* playerModel;
         void* playerMotion;
         void* playerEffect;
-        int unknown8[0x4];
+        int unknown9[0x4];
         void* playerNetControl;
         void* playerDamage;
-        int unknown9[0x9];
+        int unknown10[0x9];
         bool isRemoteControlled;
-        uint8_t unknown10[0x3];
-        int unknown11[0x47];
+        uint8_t unknown11[0x3];
+        int unknown12[0x47];
         void* playerBehindCamera;
-        int unknown12[0x70];
+        int unknown13[0x70];
     };
 }
 

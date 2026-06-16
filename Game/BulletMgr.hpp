@@ -16,7 +16,7 @@ namespace Game
         };
 
         BIND_METHOD(0x0E2302D8, Bullet*, activateOneCancelUnnecessary, BulletMgr, BulletType type, bool hasOwner, sead::Vector3<float> *position, sead::Vector3<float> *velocity)
-        CONNECT_METHOD(activateOneCancelUnnecessary, BulletMgr, type, hasOwner, position, velocity)
+        CONNECT_METHOD(activateOneCancelUnnecessary, type, hasOwner, position, velocity)
 
         int unknown[0xE];
     };

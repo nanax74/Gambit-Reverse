@@ -5,11 +5,11 @@ add_subdirectory(Sys)
 add_subdirectory(UI)
 add_subdirectory(Utl)
 
-add_library(Gambit STATIC
+add_library(Gambit INTERFACE
 
 )
 
-target_link_libraries(Gambit PUBLIC
+target_link_libraries(Gambit INTERFACE
     Cmn
     Game
     sead

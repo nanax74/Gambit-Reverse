@@ -18,7 +18,7 @@ namespace Cmn
             bool (*isAppeared)(Cmn::BtnPage* t);
             uint8_t u2[0x58];
 
-            VARIABLE(0x1051B714, BtnPage::VTable, vtable);
+            VARIABLE(ADDRESS_DATA(0x10018714), BtnPage::VTable, vtable);
         };
 
         uint8_t u0[0x40];

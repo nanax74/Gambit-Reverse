@@ -1,3 +1,3 @@
-add_library(Utl STATIC
+add_library(Utl INTERFACE
 
 )

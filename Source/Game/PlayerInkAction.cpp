@@ -1,11 +1,18 @@
-
+#include "Game/BulletBombBase.hpp"
+#include "Game/BulletBombInstant.hpp"
+#include "Game/BulletCloneHandle.hpp"
+#include "Game/BulletMgr.hpp"
+#include "Game/CloneObjMgr.hpp"
+#include "Game/MainMgrBase.hpp"
+#include "Game/Player.hpp"
+#include "Game/PlayerInkAction.hpp"
+#include "Game/PlayerParam.hpp"
 
 namespace Game
 {
-    void PlayerInkAction::shotBombInstant(Game::PlayerInkAction* t, const sead::Vector3<float>* directionOffset)
+    void PlayerInkAction::shotBombInstant()
     {
-        Game::Player* player = t->player;
-        Game::Player::PlayerControlType controlType = player->controlType;
+        Player::PlayerControlType controlType = player->controlType;
 
         sead::Vector3<float> position;
         sead::Vector3<float> velocity;
@@ -14,23 +21,19 @@ namespace Game
         direction.x = 0.0f;
         direction.y = 0.6f;
 
-        Cmn::WeaponData* weaponData = t->getShotVel_BombStd();
+        Cmn::WeaponData* weaponData = getShotVel_BombStd();
         if (weaponData->field_0xf4 == 8)
             direction.z = 2.8f;
         else
-            direction.z = t->player->playerParam->field_0x50;
-
-        direction.x += directionOffset->x;
-        direction.y += directionOffset->y;
-        direction.z += directionOffset->z;
+            direction.z = player->playerParam->field_0x50;
 
         bool unk1 = false;
-        if ((controlType == Game::Player::PlayerControlType::Local) && (player->isRemoteControlled == false))
+        if ((controlType == Player::PlayerControlType::Local) && (player->isRemoteControlled == false))
         {
             unk1 = true;
         }
         WeaponTypeAddMove weaponType = WeaponTypeAddMove::Unknown;
-        t->calcShotPosVel(-80.0, 0.0, 50.0, &position, &velocity, nullptr, &direction, &weaponType, unk1, 0, 0);
+        calcShotPosVel(-80.0, 0.0, 50.0, &position, &velocity, nullptr, &direction, &weaponType, unk1, 0, 0);
         if (velocity.y < -1.0)
         {
             float u0 = -1.0 / velocity.y;
@@ -38,27 +41,27 @@ namespace Game
             velocity.y *= u0;
             velocity.z *= u0;
         }
-        Game::BulletMgr::BulletType type = static_cast<Game::BulletMgr::BulletType>(Game::MainMgrBase::sInstance->bulletMgr->actorTypeTableByIndex[Game::BulletBombInstant::sActorTypeIndex]);
-        if (type != Game::BulletMgr::BulletType::Invalid)
+        BulletMgr::BulletType type = static_cast<BulletMgr::BulletType>(MainMgrBase::sInstance->bulletMgr->actorTypeTableByIndex[BulletBombInstant::sActorTypeIndex]);
+        if (type != BulletMgr::BulletType::Invalid)
         {
-            Game::BulletBombBase* bullet = reinterpret_cast<Game::BulletBombBase*>(Game::MainMgrBase::sInstance->bulletMgr->activateOneCancelUnnecessary(type,true,&position,&velocity));
+            BulletBombBase* bullet = reinterpret_cast<BulletBombBase*>(MainMgrBase::sInstance->bulletMgr->activateOneCancelUnnecessary(type,true,&position,&velocity));
             {
                 if(bullet)
                 {
                     uint32_t playerIndex = player->playerIndex;
-                    uint32_t cloneHandleSize = Game::CloneObjMgr::sInstance->bulletCloneHandleArray.size;
-                    Game::BulletCloneHandle* bulletCloneHandle = nullptr;
+                    uint32_t cloneHandleSize = CloneObjMgr::sInstance->bulletCloneHandleArray.size;
+                    BulletCloneHandle* bulletCloneHandle = nullptr;
 
                     if(playerIndex < cloneHandleSize)
                     {
-                        bulletCloneHandle = reinterpret_cast<Game::BulletCloneHandle**>(Game::CloneObjMgr::sInstance->bulletCloneHandleArray.pointer)[playerIndex];
+                        bulletCloneHandle = reinterpret_cast<BulletCloneHandle**>(CloneObjMgr::sInstance->bulletCloneHandleArray.pointer)[playerIndex];
                     }
 
                     bulletCloneHandle->sendEvent_ShotBombInstant(playerIndex,&position,&velocity);
-                    uint32_t seed = t->getRandomSeed();
+                    uint32_t seed = getRandomSeed();
                     bullet->initializeSender(player, playerIndex, playerIndex, &position, &velocity, seed);
                     player->startMotion_BombThrow(0, 1);
-                    t->setInkLock(0x28, true, true);
+                    setInkLock(0x28, true, true);
                 }
             }
         }

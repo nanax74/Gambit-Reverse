@@ -1,3 +1,3 @@
-add_library(Sys STATIC
+add_library(Sys INTERFACE
 
 )

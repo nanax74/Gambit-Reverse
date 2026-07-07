@@ -1,3 +1,3 @@
-add_library(sead STATIC
+add_library(sead INTERFACE
 
 )

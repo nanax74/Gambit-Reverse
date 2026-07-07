@@ -57,8 +57,7 @@ namespace Game
             type, unk1, unk2, unk3
         )
 
-        BIND_METHOD(0x0E6944B4, void, shotBombInstant, PlayerInkAction)
-        CONNECT_METHOD(shotBombInstant)
+        void shotBombInstant(); // 0x026944B4
 
         BIND_METHOD(0x0E696630, void, forceMoveBulletPosCenterIfLeft, PlayerInkAction, sead::Vector3<float>* position, sead::Vector3<float>* velocity)
         CONNECT_METHOD(forceMoveBulletPosCenterIfLeft, position, velocity)
@@ -78,7 +77,7 @@ namespace Game
         BIND_METHOD(0x0E6998A8, void, shotBullet_C, PlayerInkAction, float charge)
         CONNECT_METHOD(shotBullet_C, charge)
 
-        Game::Player* player;
+        Player* player;
         uint8_t u0[0x6C];
         uint16_t charge; // 0x70
         uint8_t phase; // 0x72

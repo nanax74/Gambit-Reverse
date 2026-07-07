@@ -1,3 +1,3 @@
-add_library(UI STATIC
+add_library(UI INTERFACE
 
 )

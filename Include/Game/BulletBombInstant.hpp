@@ -9,7 +9,7 @@ namespace Game
     class BulletBombInstant : public BulletBombBase
     {
     public:
-        VARIABLE(0x106E4600, int, sActorTypeIndex);
+        VARIABLE(ADDRESS_DATA(0x101E1600), int, sActorTypeIndex);
     
         struct VTable : public Game::BulletBombBase::VTable
         {

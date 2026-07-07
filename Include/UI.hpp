@@ -1,8 +1,8 @@
 // Incompletely decompiled symbols
 #pragma once
 
-#include "UI/Page.hpp"
-#include "sead/Vector2.hpp"
+#include "../UI/Page.hpp"
+#include "../sead/Vector2.hpp"
 
 namespace UI
 {

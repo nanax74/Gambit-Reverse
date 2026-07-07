@@ -1,5 +1,5 @@
 #pragma once
-#include "Macro.hpp"
+#include "../Macro.hpp"
 
 VARIABLE(0x106D3888, const float, M_PI);
 

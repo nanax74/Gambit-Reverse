@@ -2,6 +2,7 @@
 #include "Macro.hpp"
 #include <cstdint>
 
+#include "../Macro.hpp"
 #include "Cmn/GambitActor.hpp"
 #include "Game/Bullet.hpp"
 
@@ -17,7 +18,7 @@ namespace Game
 
         };
 
-        BIND_METHOD(0x0E1FDB84, void, initializeSender, BulletBombBase,
+        BIND_METHOD(ADDRESS_TEXT(0x021FDB84), void, initializeSender, BulletBombBase,
             Cmn::GambitActor* sender, int index, int index2, sead::Vector3<float>* pos, sead::Vector3<float>* vel, uint32_t seed)
         CONNECT_METHOD(initializeSender,
             sender, index, index2, pos, vel, seed)

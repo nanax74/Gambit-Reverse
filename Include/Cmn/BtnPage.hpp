@@ -29,7 +29,7 @@ namespace Cmn
 
         BtnPage(){} // dummy
 
-        BIND_CONSTRUCTOR(0x0E0D6824, BtnPage, char const * layoutName, int u0, int u1)
+        BIND_CONSTRUCTOR(ADDRESS_TEXT(0x020D6824), BtnPage, char const * layoutName, int u0, int u1)
         CONNECT_CONSTRUCTOR(BtnPage, layoutName, u0, u1)
     };
 }

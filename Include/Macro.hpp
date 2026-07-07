@@ -1,7 +1,7 @@
 #pragma once
 
-#define OFFSET_TEXT 0x02000000
-#define OFFSET_DATA 0x10000000
+#define OFFSET_TEXT 0x00000000
+#define OFFSET_DATA 0x00000000
 
 #define ADDRESS_TEXT(addr) addr + OFFSET_TEXT
 #define ADDRESS_DATA(addr) addr + OFFSET_DATA

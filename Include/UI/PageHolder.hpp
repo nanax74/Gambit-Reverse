@@ -21,15 +21,15 @@ namespace UI
             Cmn::SceneLayoutMgr* (*getSceneLayoutMgr)(PageHolder* t);
             uint8_t u1[0x10];
 
-            VARIABLE(0x10606FBC, PageHolder::VTable, vtable);
-            VARIABLE(0x10607044, PageHolder::VTable, vtable_IRegistable);
+            VARIABLE(ADDRESS_DATA(0x10103FBC), PageHolder::VTable, vtable);
+            VARIABLE(ADDRESS_DATA(0x10104044), PageHolder::VTable, vtable_IRegistable);
         };
 
         uint8_t u0[0x8];
         IRegistable iRegistable; static constexpr const size_t offset__iRegistable = 0x10;
         uint8_t u1[0x14];
 
-        BIND_CONSTRUCTOR(0x0E78A840, PageHolder, char const * name, int elementCount)
+        BIND_CONSTRUCTOR(ADDRESS_TEXT(0x0278A840), PageHolder, char const * name, int elementCount)
         CONNECT_CONSTRUCTOR(PageHolder, name, elementCount)
 
         void createPage() { reinterpret_cast<UI::PageHolder::VTable*>(vtable)->createPage(this); }

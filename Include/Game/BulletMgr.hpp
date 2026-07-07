@@ -15,7 +15,7 @@ namespace Game
             Invalid = 0xFF
         };
 
-        BIND_METHOD(0x0E2302D8, Bullet*, activateOneCancelUnnecessary, BulletMgr, BulletType type, bool hasOwner, sead::Vector3<float> *position, sead::Vector3<float> *velocity)
+        BIND_METHOD(ADDRESS_TEXT(0x022302D8), Bullet*, activateOneCancelUnnecessary, BulletMgr, BulletType type, bool hasOwner, sead::Vector3<float> *position, sead::Vector3<float> *velocity)
         CONNECT_METHOD(activateOneCancelUnnecessary, type, hasOwner, position, velocity)
 
         int unknown[0xE];

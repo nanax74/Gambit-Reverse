@@ -11,6 +11,6 @@ namespace Game
         uint8_t u0[0x78];
         sead::PtrArrayImpl bulletCloneHandleArray;
 
-        VARIABLE(0x106E52AC, CloneObjMgr*, sInstance);
+        VARIABLE(ADDRESS_DATA(0x101E22AC), CloneObjMgr*, sInstance);
     };
 }

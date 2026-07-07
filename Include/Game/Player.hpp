@@ -26,13 +26,13 @@ namespace Game
 
         };
 
-        BIND_METHOD(0x0E641C1C, void, onFirstCalc, Player)
+        BIND_METHOD(ADDRESS_TEXT(0x02641C1C), void, onFirstCalc, Player)
         CONNECT_METHOD(onFirstCalc)
 
-        BIND_METHOD(0x0E645F2C, Cmn::Def::DMG, informDamage_Impl, Player, int attackerPlayerIndex, DamageReason *reason, bool u0, bool u1, Cmn::Def::DMG damage)
+        BIND_METHOD(ADDRESS_TEXT(0x02645F2C), Cmn::Def::DMG, informDamage_Impl, Player, int attackerPlayerIndex, DamageReason *reason, bool u0, bool u1, Cmn::Def::DMG damage)
         CONNECT_METHOD(informDamage_Impl, attackerPlayerIndex, reason, u0, u1, damage)
 
-        BIND_METHOD(0x0E658BD0, void, startMotion_BombThrow, Player, bool unk1, bool unk2)
+        BIND_METHOD(ADDRESS_TEXT(0x02658BD0), void, startMotion_BombThrow, Player, bool unk1, bool unk2)
         CONNECT_METHOD(startMotion_BombThrow, unk1, unk2)
 
         PlayerControlType controlType;

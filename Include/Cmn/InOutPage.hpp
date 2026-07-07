@@ -18,7 +18,7 @@ namespace Cmn
             bool (*isAppeared)(Cmn::InOutPage* t);
             uint8_t u2[0x58];
 
-            VARIABLE(0x1051B714, InOutPage::VTable, vtable);
+            VARIABLE(ADDRESS_DATA(0x10018714), InOutPage::VTable, vtable);
         };
 
         uint8_t u0[0x40];
@@ -29,7 +29,7 @@ namespace Cmn
 
         InOutPage(){} // dummy
 
-        BIND_CONSTRUCTOR(0x0E0D6824, InOutPage, char const * layoutName, int u0, int u1)
+        BIND_CONSTRUCTOR(ADDRESS_TEXT(0x020D6824), InOutPage, char const * layoutName, int u0, int u1)
         CONNECT_CONSTRUCTOR(InOutPage, layoutName, u0, u1)
     };
 }

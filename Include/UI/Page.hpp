@@ -14,10 +14,10 @@ namespace UI
         class InitializeArg
         {
         public:
-            BIND_CONSTRUCTOR(0x0E783AA4, InitializeArg, Cmn::SceneLayoutMgr* sceneLayoutMgr)
+            BIND_CONSTRUCTOR(ADDRESS_TEXT(0x02783AA4), InitializeArg, Cmn::SceneLayoutMgr* sceneLayoutMgr)
             CONNECT_CONSTRUCTOR(InitializeArg, sceneLayoutMgr)
 
-            BIND_METHOD(0x0E783D90, void, add, InitializeArg, int jobType, int u1)
+            BIND_METHOD(ADDRESS_TEXT(0x02783D90), void, add, InitializeArg, int jobType, int u1)
             CONNECT_METHOD(add, jobType, u1)
 
             uint8_t u0[0xA8];

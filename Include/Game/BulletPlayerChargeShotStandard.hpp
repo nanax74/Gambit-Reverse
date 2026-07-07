@@ -6,6 +6,6 @@ namespace Game
     class BulletPlayerChargeShotStandard
     {
     public:
-        VARIABLE(0x106E4844, int, sActorTypeIndex);
+        VARIABLE(ADDRESS_DATA(0x101E1844), int, sActorTypeIndex);
     };
 }

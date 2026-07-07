@@ -28,7 +28,7 @@ namespace Game
         void* rivalMgr;
         int unknown4[0x8];
 
-        VARIABLE(0x106E5814, MainMgrBase*, sInstance);
+        VARIABLE(ADDRESS_DATA(0x101E2814), MainMgrBase*, sInstance);
 
         int getGameFrame() { return reinterpret_cast<Game::MainMgrBase::VTable*>(vtable)->getGameFrame(this); }
     };

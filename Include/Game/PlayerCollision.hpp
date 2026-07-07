@@ -11,7 +11,7 @@ namespace Game
     class PlayerCollision
     {
     public:
-        BIND_METHOD(0x0E67B840, Cmn::Def::DMG, processDamageFromBullet_, PlayerCollision, Bullet* bullet, sead::Vector3<float>* knockback, Cmn::Def::DMG damage)
+        BIND_METHOD(ADDRESS_TEXT(0x0267B840), Cmn::Def::DMG, processDamageFromBullet_, PlayerCollision, Bullet* bullet, sead::Vector3<float>* knockback, Cmn::Def::DMG damage)
         CONNECT_METHOD(processDamageFromBullet_, bullet, knockback, damage)
 
         Game::Player* player;

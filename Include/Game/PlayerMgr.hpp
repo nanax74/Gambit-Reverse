@@ -14,10 +14,10 @@ namespace Game
 
         };
 
-        BIND_METHOD(0x0E6BA4D8, Game::Player*, getPerformerAt, PlayerMgr, int index)
+        BIND_METHOD(ADDRESS_TEXT(0x026BA4D8), Game::Player*, getPerformerAt, PlayerMgr, int index)
         CONNECT_METHOD(getPerformerAt, index)
 
-        BIND_METHOD(0x0E6BA754, int, getControlledPerformerIdx, PlayerMgr)
+        BIND_METHOD(ADDRESS_TEXT(0x026BA754), int, getControlledPerformerIdx, PlayerMgr)
         CONNECT_METHOD(getControlledPerformerIdx)
 
         uint8_t u0[0x78];

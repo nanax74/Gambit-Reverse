@@ -12,10 +12,10 @@ namespace Cmn
     public:
         uint8_t u0[0x254];
 
-        BIND_CONSTRUCTOR(0x0E0C69E4, TextSetter, UI::Page * page, sead::SafeStringBase<char>* layoutName)
+        BIND_CONSTRUCTOR(ADDRESS_TEXT(0x020C69E4), TextSetter, UI::Page * page, sead::SafeStringBase<char>* layoutName)
         CONNECT_CONSTRUCTOR(TextSetter, page, layoutName)
 
-        BIND_METHOD(0x0E0C7D80, void, directSetUtf16, TextSetter, char16_t const * text)
+        BIND_METHOD(ADDRESS_TEXT(0x020C7D80), void, directSetUtf16, TextSetter, char16_t const * text)
         CONNECT_METHOD(directSetUtf16, text)
     };
 }

@@ -20,10 +20,10 @@ namespace Game
         Cmn::TextSetter* textSetter;
         uint8_t u0[0x8];
 
-        BIND_CONSTRUCTOR(0x0E48D344, PlayerNamePage)
+        BIND_CONSTRUCTOR(ADDRESS_TEXT(0x0248D344), PlayerNamePage)
         CONNECT_CONSTRUCTOR(PlayerNamePage)
 
-        BIND_METHOD(0x0E48D3DC, void, setPlayerName, PlayerNamePage, Cmn::PlayerInfo * playerInfo)
+        BIND_METHOD(ADDRESS_TEXT(0x0248D3DC), void, setPlayerName, PlayerNamePage, Cmn::PlayerInfo * playerInfo)
         CONNECT_METHOD(setPlayerName, playerInfo)
 
         inline static void* operator new(size_t size)

@@ -17,7 +17,7 @@ namespace Game
 
         uint8_t u1[0x40];
 
-        BIND_METHOD(0x0E48C0DC, void, createPage, PlayerPageHandler)
+        BIND_METHOD(ADDRESS_TEXT(0x0248C0DC), void, createPage, PlayerPageHandler)
         CONNECT_METHOD(createPage)
 
         Cmn::SceneLayoutMgr* getSceneLayoutMgr() { return reinterpret_cast<Game::PlayerPageHandler::VTable*>(vtable)->getSceneLayoutMgr(this); }
